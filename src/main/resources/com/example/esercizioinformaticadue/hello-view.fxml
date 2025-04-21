@@ -3,43 +3,63 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<!-- Container principale che utilizza un layout verticale (VBox), con allineamento centrale e spaziatura tra gli elementi -->
 <VBox alignment="CENTER" spacing="15" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.example.esercizioinformaticadue.HelloController"
       style="-fx-background-color: #f8f9fa; -fx-padding: 20;" fx:id="mainContainer">
 
-    <Label text="Ordina Parole" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" fx:id="titleLabel"/>
+    <!-- Titolo dell'interfaccia grafica -->
+    <Label text="Ordina Parole" 
+           style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" 
+           fx:id="titleLabel"/>
 
+    <!-- Sezione per selezionare il tema -->
     <VBox spacing="5" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);">
-        <Label text="Tema:" style="-fx-font-weight: bold; -fx-text-fill: #3498db;"/>
+        <Label text="Tema:" 
+               style="-fx-font-weight: bold; -fx-text-fill: #3498db;"/>
         <HBox alignment="CENTER" spacing="15">
+            <!-- Pulsante per il tema chiaro -->
             <RadioButton fx:id="lightTheme" onAction="#applyLightTheme" text="Chiaro" selected="true" toggleGroup="$themeGroup"
                          style="-fx-font-size: 14px;"/>
-            <RadioButton fx:id="darkTheme"  onAction="#applyDarkTheme" text="Scuro" toggleGroup="$themeGroup"
+            <!-- Pulsante per il tema scuro -->
+            <RadioButton fx:id="darkTheme" onAction="#applyDarkTheme" text="Scuro" toggleGroup="$themeGroup"
                          style="-fx-font-size: 14px;"/>
         </HBox>
     </VBox>
 
+    <!-- Sezione per selezionare le opzioni di ordinamento -->
     <VBox spacing="5" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);">
-        <Label text="Opzioni di ordinamento:" style="-fx-font-weight: bold; -fx-text-fill: #3498db;"/>
-        <ChoiceBox fx:id="menuOrdinamento" style="-fx-font-size: 14px; -fx-background-radius: 5; -fx-border-color: #e0e0e0; -fx-border-radius: 5;"/>
+        <Label text="Opzioni di ordinamento:" 
+               style="-fx-font-weight: bold; -fx-text-fill: #3498db;"/>
+        <!-- Menu a tendina per le opzioni -->
+        <ChoiceBox fx:id="menuOrdinamento" 
+                   style="-fx-font-size: 14px; -fx-background-radius: 5; -fx-border-color: #e0e0e0; -fx-border-radius: 5;"/>
     </VBox>
 
+    <!-- Sezione per visualizzare l'elenco delle parole -->
     <VBox spacing="5" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);">
-        <Label text="Elenco parole:" style="-fx-font-weight: bold; -fx-text-fill: #3498db;"/>
+        <Label text="Elenco parole:" 
+               style="-fx-font-weight: bold; -fx-text-fill: #3498db;"/>
+        <!-- Area di testo non modificabile per mostrare l'elenco -->
         <TextArea fx:id="welcomeText" editable="false" wrapText="true"
                   prefHeight="150" prefWidth="350"
                   style="-fx-font-size: 14px; -fx-background-color: transparent; -fx-border-color: #e0e0e0; -fx-border-radius: 5;"/>
     </VBox>
 
+    <!-- Sezione per aggiungere nuove parole -->
     <VBox spacing="5" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);">
-        <Label text="Aggiungi nuova parola:" style="-fx-font-weight: bold; -fx-text-fill: #3498db;"/>
+        <Label text="Aggiungi nuova parola:" 
+               style="-fx-font-weight: bold; -fx-text-fill: #3498db;"/>
+        <!-- Area di testo per inserire una nuova parola -->
         <TextArea fx:id="area" promptText="Scrivi qui la parola..." prefHeight="80" prefWidth="350"
                   style="-fx-font-size: 14px; -fx-border-color: #e0e0e0; -fx-border-radius: 5;"/>
-
+        
+        <!-- Contenitore orizzontale per i pulsanti -->
         <HBox spacing="10" alignment="CENTER">
+            <!-- Pulsante per aggiungere una nuova parola -->
             <Button fx:id="invia" onAction="#click" text="Aggiungi"
                     style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px; -fx-padding: 8 20; -fx-background-radius: 5;"/>
-
+            <!-- Pulsante per eliminare una parola -->
             <Button fx:id="elimina" onAction="#elimina" text="Elimina"
                     style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px; -fx-padding: 8 20; -fx-background-radius: 5;"/>
         </HBox>
